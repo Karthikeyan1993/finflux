@@ -1,0 +1,166 @@
+<div class="row">
+   <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="page-header">
+         <h2>
+            <span style="padding-right:10px;" class="fa fa-inr h-icon" aria-hidden="true"></span>
+            <span>Lending Club Back Office</span>
+         </h2>
+      </div>
+   </div>
+</div>
+<div class="row">
+   <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="panel panel-filled">
+         <div class="panel-body">
+            <div class="row">
+               <div class="col-lg-4">
+                  <select class="form-control" [(ngModel)]="searchKey" name="searchKey" style="width: 100%">
+                     <option [ngValue]="undefined" selected>Search by:</option>
+                     <option value="member_id">member_id</option>
+                     <option value="loan_amnt">loan_amnt</option>
+                     <option value="funded_amnt_inv">funded_amnt_inv</option>
+                     <option value="term">term</option>
+                     <option value="int_rate">int_rate</option>
+                     <option value="installment">installment</option>
+                     <option value="grade">grade</option>
+                     <option value="verification_status">verification_status</option>
+                     <option value="loan_status">loan_status</option>
+                  </select>
+               </div>
+               <div class="col-lg-4">
+                  <div class="form-group">
+                     <input class="form-control" [(ngModel)]="searchText" type="text" placeholder="Search..." style="width: 100%">
+                  </div>
+               </div>
+               <div class="col-lg-4">
+                  <select [(ngModel)]="prop" class="form-control m-b-xs m-t-xs" name="prop" style="width: 100%">
+                     <option [ngValue]="undefined" selected>Sort by</option>
+                     <option value="member_id">member_id</option>
+                     <option value="loan_amnt">loan_amnt</option>
+                     <option value="funded_amnt_inv">funded_amnt_inv</option>
+                     <option value="term">term</option>
+                     <option value="int_rate">int_rate</option>
+                     <option value="installment">installment</option>
+                     <option value="grade">grade</option>
+                     <option value="verification_status">verification_status</option>
+                     <option value="loan_status">loan_status</option>
+                  </select>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="panel panel-filled">
+         <div class="panel-body">
+            <div class="table-responsive" style="height:500px;">
+               <table class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th (click)="sortData('member_id')">
+                           <span>Member_id</span>
+                           <span [ngClass]="getSortClass('member_id')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('loan_amnt')">
+                           <span>Loan_amnt</span>
+                           <span [ngClass]="getSortClass('loan_amnt')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('funded_amnt_inv')">
+                           <span>Funded_amnt_inv</span>
+                           <span [ngClass]="getSortClass('funded_amnt_inv')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('term')">
+                           <span>Term</span>
+                           <span [ngClass]="getSortClass('term')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('int_rate')">
+                           <span>Int_rate</span>
+                           <span [ngClass]="getSortClass('int_rate')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('installment')">
+                           <span>Installment</span>
+                           <span [ngClass]="getSortClass('installment')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('grade')">
+                           <span>Grade</span>
+                           <span [ngClass]="getSortClass('grade')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('emp_title')">
+                           <span>Emp_title</span>
+                           <span [ngClass]="getSortClass('emp_title')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('emp_length')">
+                           <span>Emp_length</span>
+                           <span [ngClass]="getSortClass('emp_length')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('home_ownership')">
+                           <span>Home_ownership</span>
+                           <span [ngClass]="getSortClass('home_ownership')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('annual_inc')">
+                           <span>Annual_inc</span>
+                           <span [ngClass]="getSortClass('Annual_inc')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('verification_status')">
+                           <span>Verification_status</span>
+                           <span [ngClass]="getSortClass('verification_status')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('issue_d')">
+                           <span>Issue_d</span>
+                           <span [ngClass]="getSortClass('issue_d')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('loan_status')">
+                           <span>Loan_status</span>
+                           <span [ngClass]="getSortClass('loan_status')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('purpose')">
+                           <span>Purpose</span>
+                           <span [ngClass]="getSortClass('purpose')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('title')">
+                           <span>Title</span>
+                           <span [ngClass]="getSortClass('title')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('addr_state')">
+                           <span>Addr_state</span>
+                           <span [ngClass]="getSortClass('addr_state')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('last_pymnt_d')">
+                           <span>Last_pymnt_d</span>
+                           <span [ngClass]="getSortClass('last_pymnt_d')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                        <th (click)="sortData('last_pymnt_amnt')">
+                           <span>Last_pymnt_amnt</span>
+                           <span [ngClass]="getSortClass('last_pymnt_amnt')" class="sort-icon fa" aria-hidden="true"></span>
+                        </th>
+                     </tr>
+                  </thead>
+                  <ng-container *ngIf="loan$ | async;let items">
+                     <tbody>
+                        <tr *ngFor="let item of (items.data.slice(0,100)) | tableFilter : searchText : searchKey | tableSort :direction:prop;trackBy:trackById;">
+                           <td class="col-sm-2 col-md-2 col-lg-2"><a [routerLink]="['view',item.member_id]">{{item.member_id}}</a></td>
+                           <td style="width:100px;">{{item.loan_amnt}}</td>
+                           <td>{{item.funded_amnt_inv}}</td>
+                           <td>{{item.term}}</td>
+                           <td>{{item.int_rate}}</td>
+                           <td>{{item.installment}}</td>
+                           <td>{{item.grade}}</td>
+                           <td>{{item.emp_title}}</td>
+                           <td>{{item.emp_length}}</td>
+                           <td>{{item.home_ownership}}</td>
+                           <td>{{item.annual_inc}}</td>
+                           <td>{{item.verification_status}}</td>
+                           <td>{{item.issue_d}}</td>
+                           <td>{{item.loan_status}}</td>
+                           <td>{{item.purpose}}</td>
+                           <td>{{item.title}}</td>
+                           <td>{{item.addr_state}}</td>
+                           <td>{{item.last_pymnt_d}}</td>
+                           <td>{{item.last_pymnt_amnt}}</td>
+                        </tr>
+                     </tbody>
+                  </ng-container>
+               </table>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="page-header">
+      <h2>
+        <span class="fa fa-user-circle-o h-icon" aria-hidden="true"></span>
+        <span style="padding-left:5px;">Member ID : {{data?.member_id}}</span>
+      </h2>
+    </div>
+  </div>
+</div>
+<div class="back-link">
+  <a routerLink="/loan" class="btn btn-accent">Back to Loan Details</a>
+</div>
+<div class="row">
+  <div class="col-sm-6 col-md-6 col-lg-6">
+    <div class="panel panel-filled">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td><b>Member Id:</b></td>
+                <td>{{data?.member_id}}</td>
+              </tr>
+              <tr>
+                <td><b>Loan Aount:</b></td>
+                <td>{{data?.loan_amnt}}</td>
+              </tr>
+              <tr>
+                <td><b>Funded Amount Inv:</b></td>
+                <td>{{data?.funded_amnt_inv}}</td>
+              </tr>
+              <tr>
+                <td><b>Term:</b></td>
+                <td>{{data?.term}}</td>
+              </tr>
+              <tr>
+                <td><b>Interest Rate:</b></td>
+                <td>{{data?.int_rate}}</td>
+              </tr>
+              <tr>
+                <td><b>Installment:</b></td>
+                <td>{{data?.installment}}</td>
+              </tr>
+              <tr>
+                <td><b>Grade:</b></td>
+                <td>{{data?.grade}}</td>
+              </tr>
+              <tr>
+                <td><b>Employee Title</b></td>
+                <td>{{data?.emp_title}}</td>
+              </tr>
+              <tr>
+                <td><b>Employee Len</b></td>
+                <td>{{data?.emp_length}}</td>
+              </tr>
+              <tr>
+                <td><b>Home Ownership</b></td>
+                <td>{{data?.home_ownership}}</td>
+              </tr>
+              <tr>
+                <td><b>Verification Status</b></td>
+                <td>{{data?.verification_status}}</td>
+              </tr>
+              <tr>
+                <td><b>Loan Status</b></td>
+                <td>{{data?.loan_status}}</td>
+              </tr>
+              <tr>
+                <td><b>Issue Date</b></td>
+                <td>{{data?.issue_d}}</td>
+              </tr>
+              <tr>
+                <td><b>Purpose</b></td>
+                <td>{{data?.purpose}}</td>
+              </tr>
+              <tr>
+                <td><b>Title</b></td>
+                <td>{{data?.title}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
