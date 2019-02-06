@@ -1,85 +1,133 @@
 <div class="row">
-  <div class="col-sm-12 col-md-12 col-lg-12">
-    <div class="page-header">
-      <h2>
-        <span class="fa fa-user-circle-o h-icon" aria-hidden="true"></span>
-        <span style="padding-left:5px;">Member ID : {{data?.member_id}}</span>
-      </h2>
-    </div>
-  </div>
+	<div class="col-sm-12 col-md-12 col-lg-12">
+		<div class="page-header">
+			<h2>
+				<span class="fa fa-user-circle-o h-icon" aria-hidden="true"></span>
+            <span class="padd-left-5">Member Id - {{loan?.member_id}}</span>
+         </h2>
+      </div>
+   </div>
 </div>
 <div class="back-link">
   <a routerLink="/loan" class="btn btn-accent">Back to Loan Details</a>
 </div>
 <div class="row">
-  <div class="col-sm-6 col-md-6 col-lg-6">
+   <div class="col-sm-8 col-md-8 col-lg-8">
+      <div class="panel panel-filled">
+         <div class="panel-body">
+            <h4>
+            <span>Mortgage Summary</span>
+            <span class="fa fa-hand-o-right h-icon padd-left-5" aria-hidden="true"></span>
+            </h4>
+            <table class="table">
+               <tbody>
+                  <tr>
+                     <td>
+                        <div class="mortage-big-font">
+                           <span class="fa fa-inr h-icon padd-right-2" aria-hidden="true"></span>
+                           <span>{{loan?.loan_amnt}}</span>
+                        </div>
+                        <div>Loan Amount</div>
+                     </td>
+                     <td>
+                        <div class="mortage-big-font">
+                           <span>{{loan?.term}}</span>
+                        </div>
+                        <div>Payment Duration</div>
+                     </td>
+                     <td>
+                        <div class="mortage-big-font">
+                           <span>{{loan?.int_rate}} %</span>
+                        </div>
+                        <div>Interest Rate</div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <div class="mortage-big-font">
+                           <span class="fa fa-inr h-icon padd-right-2" aria-hidden="true"></span>
+                           <span>{{loan?.month_installment}}</span>
+                        </div>
+                        <div>Monthly Payment</div>
+                     </td>
+                     <td>
+                        <div class="mortage-big-font">
+                           <span class="fa fa-inr h-icon padd-right-2" aria-hidden="true"></span>
+                           <span>{{loan?.monthly_interest}}</span>
+                        </div>
+                        <div>Monthly Interest Amount</div>
+                     </td>
+                     <td>
+                        <div class="mortage-big-font">
+                           <span class="fa fa-inr h-icon padd-right-2" aria-hidden="true"></span>
+                           <span>{{loan?.yearly_interest}}</span>
+                        </div>
+                        <div>Yearly Interest Amount</div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <div class="mortage-big-font">
+                           <span class="fa fa-inr h-icon padd-right-2" aria-hidden="true"></span>
+                           <span>{{loan?.totl_interest}}</span>
+                        </div>
+                        <div>Total Interest Paid</div>
+                     </td>
+                     <td>
+                        <div class="mortage-big-font">
+                           <span class="fa fa-inr h-icon padd-right-2" aria-hidden="true"></span>
+                           <span>{{loan?.totl_payment}}</span>
+                        </div>
+                        <div>Total Amount with Interest</div>
+                     </td>
+                     <td>
+                        <div class="mortage-big-font">
+                           <span>-</span>
+                        </div>
+                        <div>Pay-off Date</div>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+   </div>
+   <div class="col-sm-4 col-md-4 col-lg-4">
+      <div class="panel panel-filled">
+         <div class="panel-body">
+            <app-loan-chart [data]="loan.amortization"></app-loan-chart>
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12">
     <div class="panel panel-filled">
       <div class="panel-body">
+        <h4>
+          <span>Amortization Table - Monthly View</span>
+          <span class="fa fa-table h-icon padd-left-5" aria-hidden="true"></span>
+        </h4>
         <div class="table-responsive">
-          <table class="table table-bordered">
+        <table class="table table-striped table-condensed">
+            <thead>
+              <tr>
+                <th>S No</th>
+                <th>Interest</th>
+                <th>Principal</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr>
-                <td><b>Member Id:</b></td>
-                <td>{{data?.member_id}}</td>
-              </tr>
-              <tr>
-                <td><b>Loan Aount:</b></td>
-                <td>{{data?.loan_amnt}}</td>
-              </tr>
-              <tr>
-                <td><b>Funded Amount Inv:</b></td>
-                <td>{{data?.funded_amnt_inv}}</td>
-              </tr>
-              <tr>
-                <td><b>Term:</b></td>
-                <td>{{data?.term}}</td>
-              </tr>
-              <tr>
-                <td><b>Interest Rate:</b></td>
-                <td>{{data?.int_rate}}</td>
-              </tr>
-              <tr>
-                <td><b>Installment:</b></td>
-                <td>{{data?.installment}}</td>
-              </tr>
-              <tr>
-                <td><b>Grade:</b></td>
-                <td>{{data?.grade}}</td>
-              </tr>
-              <tr>
-                <td><b>Employee Title</b></td>
-                <td>{{data?.emp_title}}</td>
-              </tr>
-              <tr>
-                <td><b>Employee Len</b></td>
-                <td>{{data?.emp_length}}</td>
-              </tr>
-              <tr>
-                <td><b>Home Ownership</b></td>
-                <td>{{data?.home_ownership}}</td>
-              </tr>
-              <tr>
-                <td><b>Verification Status</b></td>
-                <td>{{data?.verification_status}}</td>
-              </tr>
-              <tr>
-                <td><b>Loan Status</b></td>
-                <td>{{data?.loan_status}}</td>
-              </tr>
-              <tr>
-                <td><b>Issue Date</b></td>
-                <td>{{data?.issue_d}}</td>
-              </tr>
-              <tr>
-                <td><b>Purpose</b></td>
-                <td>{{data?.purpose}}</td>
-              </tr>
-              <tr>
-                <td><b>Title</b></td>
-                <td>{{data?.title}}</td>
+              <tr *ngFor="let item of loan?.amortization">
+                <td>{{item.rowNum}}</td>
+                <td>{{item.interest}}</td>
+                <td>{{item.principal}}</td>
+                <td>{{item.balance < 1 ? 0 : item.balance}}</td>
               </tr>
             </tbody>
-          </table>
+        </table>
         </div>
       </div>
     </div>

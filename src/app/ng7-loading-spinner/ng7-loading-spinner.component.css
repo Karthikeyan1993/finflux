@@ -33,7 +33,6 @@
 	from {
 		-webkit-transform: rotate(0deg);
 	}
-
 	to {
 		-webkit-transform: rotate(359deg);
 	}
@@ -43,7 +42,6 @@
 	from {
 		-moz-transform: rotate(0deg);
 	}
-
 	to {
 		-moz-transform: rotate(359deg);
 	}
@@ -53,7 +51,6 @@
 	from {
 		-o-transform: rotate(0deg);
 	}
-
 	to {
 		-o-transform: rotate(359deg);
 	}
@@ -63,7 +60,6 @@
 	from {
 		transform: rotate(0deg);
 	}
-
 	to {
 		transform: rotate(359deg);
 	}
